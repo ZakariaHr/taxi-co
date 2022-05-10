@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}Driver's check{% endblock %}
+{% block body %}
+
+    <div>
+        <a href='{{ path('taxi_co_homepage') }}'>Homepage</a>
+    </div>
+    </br>
+    <div>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div>
+            {{ form_row(form.ride) }}
+        </div>
+        </br>
+        <div>
+            {{ form_row(form.driver) }}
+        </div>
+        </br>
+        <div>
+            {{ form_row(form.save) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+    {% if form.vars.submitted == true %}
+        {% if driverAllowedForVehicle == true %}
+            <p>The driver is allowed to drive the vehicle</p>
+        {% else %}
+            <p>The driver is NOT allowed to drive the vehicle</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

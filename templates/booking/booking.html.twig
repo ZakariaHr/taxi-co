@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Driver's Bookings{% endblock %}
+{% block body %}
+
+    <div>
+        <a href='{{ path('taxi_co_homepage') }}'> Homepage</a>
+    </div>
+
+    <div>
+        <a href='{{ path('drivers_list') }}'> Driver's list</a>
+    </div>
+    <h3>Driver's Bookings</h3>
+    </br>
+    {% if bookings is not empty %}
+        Name : {{ driver.name }} {{ driver.surname }}
+        </br>
+        Booking dates:
+        {% for booking in bookings %}
+            <li>{{ booking.date|date('Y-m-d') }} - Ride ID: {{ booking.ride.id }} - Ride make: {{ booking.ride.make }}</li>
+        {% endfor %}
+    {% else %}
+        No bookings for {{ driver.name }} {{ driver.surname }} of yet
+    {% endif %}
+{% endblock %}

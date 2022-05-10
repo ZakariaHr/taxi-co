@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Users List{% endblock %}
+{% block body %}
+    <div>
+        <a href='{{ path('taxi_co_homepage') }}'> Homepage</a>
+    </div>
+    </br>
+
+    {% for user in users %}
+        {% if user.driver is not null %}
+            name:
+            <li>
+                <a href="{{ path('user_rides', {user: user.id}) }}">{{ user.driver.name }} {{ user.driver.surname }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

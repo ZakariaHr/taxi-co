@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}User's Rides{% endblock %}
+{% block body %}
+    <div>
+        <a href='{{ path('taxi_co_homepage') }}'> Homepage</a>
+    </div>
+    <div>
+        <a href='{{ path('users_list') }}'> Users's list</a>
+    </div>
+
+
+    <h3>User's rides</h3>
+    <p>Name : {{ user.driver.name }} {{ user.driver.surname }}</p>
+
+    <div>
+        <span>User's Rides:</span>
+        {% for ride in rides %}
+            {% if ride['id'] is not empty %}
+                <li>Ride ID: {{ ride['id'] }} - Ride make: {{ ride['make'] }}</li>
+            {% else %}
+                No rides registered for {{ user.driver.name }} {{ user.driver.surname }} of yet
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

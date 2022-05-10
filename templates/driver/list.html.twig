@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Drivers List{% endblock %}
+{% block body %}
+    <div>
+        <a href='{{ path('taxi_co_homepage') }}'> Homepage</a>
+    </div>
+    </br>
+
+    {% for driver in drivers %}
+        name:
+        <li>
+            <a href="{{ path('driver_booking', {driver: driver.id}) }}">{{ driver.name }} {{ driver.surname }}</a>
+        </li>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    Hello
+
+   <ul>
+       <li><a href='{{ path('drivers_list') }}'>Drivers List Drive's</a></li>
+       <li><a href={{ path('users_list') }}>registered user's rides</a></li>
+       <li><a href='{{ path('driver_ride_history') }}'>answer who was driving a specific car on a specific day</a></li>
+       <li><a href='{{ path('driver_ride_check') }}'>validate whether a driver has the appropriate license to drive a specific vehicle</a></li>
+   </ul>
+{% endblock %}
