@@ -18,7 +18,7 @@ class DriverRideHistoryType extends AbstractType
             ->add('rides', EntityType::class, [
                 'label' => 'Select a car: ',
                 'class' => Ride::class,
-                'choice_label' => 'id',
+                'choice_label' => 'getDisplayName',
             ])
             ->add('date', DateType::class, ['data' => new \DateTime(), 'label' => 'Select a date: '])
             ->add('save', SubmitType::class)
